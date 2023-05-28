@@ -163,14 +163,6 @@ int main()
 			std::cin >> ad;
 			stmt = con->createStatement();
 			stmt->executeUpdate("insert into accounts (FirstName, LastName, Gender, Address, Balance, City, AccountType) values ('" + na + "','" + lna + "','" + gender + "','" + ad + "','0','ghaziabad','saving')");
-			//        
-			//sno++;
-
-			//Insert Query
-			// 
-			//obj.Create(na, 1000 + sno, ad);
-			//list[sno - 1] = obj;
-			//obj.ShowBalance();
 		}
 		break;
 		case 2:
