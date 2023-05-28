@@ -147,29 +147,30 @@ int main()
 		std::cout << "enter 8 to exit" << "\n";
 		std::cout << "enter your choice" << "\n";
 		std::cin >> choice;
-		int amount; std::string accno; std::string ben ; bool isFound; int bal;
+		int amount; std::string accno; std::string ben; bool isFound; int bal;
 		switch (choice)
 		{
 		case 1:
-		{ std::string na; std::string ad; std::string lna, gender;
-		std::cout << "enter your Fname" << "\n";
-		std::cin >> na;
-		std::cout << "enter your lname" << "\n";
-		std::cin >> lna;
-		std::cout << "enter your lname" << "\n";
-		std::cin >> gender;
-		std::cout << "enter your address" << "\n";
-		std::cin >> ad;
-		stmt = con->createStatement();
-		stmt->executeUpdate("insert into accounts (FirstName, LastName, Gender, Address, Balance, City, AccountType) values ('" + na + "','" + lna + "','" + gender + "','" + ad + "','0','ghaziabad','saving')");
-		//        
-		//sno++;
+		{
+			std::string na; std::string ad; std::string lna, gender;
+			std::cout << "enter your Fname" << "\n";
+			std::cin >> na;
+			std::cout << "enter your lname" << "\n";
+			std::cin >> lna;
+			std::cout << "enter your lname" << "\n";
+			std::cin >> gender;
+			std::cout << "enter your address" << "\n";
+			std::cin >> ad;
+			stmt = con->createStatement();
+			stmt->executeUpdate("insert into accounts (FirstName, LastName, Gender, Address, Balance, City, AccountType) values ('" + na + "','" + lna + "','" + gender + "','" + ad + "','0','ghaziabad','saving')");
+			//        
+			//sno++;
 
-		//Insert Query
-		// 
-		//obj.Create(na, 1000 + sno, ad);
-		//list[sno - 1] = obj;
-		//obj.ShowBalance();
+			//Insert Query
+			// 
+			//obj.Create(na, 1000 + sno, ad);
+			//list[sno - 1] = obj;
+			//obj.ShowBalance();
 		}
 		break;
 		case 2:
@@ -178,7 +179,7 @@ int main()
 			std::cin >> accno;
 			stmt = con->createStatement();
 
-			res = stmt->executeQuery("SELECT * from accounts where accountNumber='" + accno +"'");
+			res = stmt->executeQuery("SELECT * from accounts where accountNumber='" + accno + "'");
 			while (res->next()) {
 
 				/* Access column data by alias or column name */
@@ -205,10 +206,10 @@ int main()
 			res = stmt->executeQuery("SELECT * from accounts where accountNumber='" + accno + "'");
 			while (res->next()) {
 				bal = res->getInt(6);
-			cout <<"current bal:" << bal<<"\n";
-				std::string cbal= to_string(bal - amount);
+				cout << "current bal:" << bal << "\n";
+				std::string cbal = to_string(bal - amount);
 				cout << cbal;
-				stmt->executeUpdate("update accounts set Balance='"+ cbal +"' where accountNumber='"+ accno +"'");
+				stmt->executeUpdate("update accounts set Balance='" + cbal + "' where accountNumber='" + accno + "'");
 			}
 			/*for (i = 0; i <= sno; i++)
 			{
@@ -257,7 +258,7 @@ int main()
 			}*/
 			break;
 		case 6:
-			
+
 			std::cout << "enter the account number from which you want to transfer money";
 			std::cin >> accno;
 			std::cout << "enter the amount to transfer" << "\n";
